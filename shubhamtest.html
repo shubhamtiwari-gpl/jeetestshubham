@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>IITIAN SHRISTI - Computer Based Test (CBT)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Great+Vibes&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #060913;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --card-border: rgba(56, 189, 248, 0.2);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.35);
+      --accent: #6366f1;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --input-bg: rgba(10, 15, 30, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 45%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.12) 0px, transparent 50%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+      overflow-x: hidden;
+    }
+
+    /* TOP HEADER */
+    .exam-header {
+      background: rgba(11, 17, 32, 0.98);
+      backdrop-filter: blur(15px);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .brand-titles h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #ffffff, #38bdf8, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .brand-titles p {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .header-user-info {
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .user-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      color: #0b1120;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .user-details {
+      font-size: 11px;
+      line-height: 1.3;
+      text-align: right;
+    }
+
+    .btn-logout {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #f87171;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* SCREEN 1: LOGIN CARD */
+    #login-page {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .login-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(25px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .login-header-area {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .terminal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .login-header-area h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .login-header-area p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .modern-form-group {
+      margin-bottom: 16px;
+    }
+
+    .modern-form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-wrapper .input-icon {
+      position: absolute;
+      left: 12px;
+      color: var(--text-muted);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 11px 12px 11px 38px;
+      font-size: 14px;
+      color: #ffffff;
+      outline: none;
+    }
+
+    .btn-login-modern {
+      width: 100%;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #060913;
+      border: none;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    /* SCREEN: CANDIDATE DASHBOARD */
+    #dashboard-page {
+      display: none;
+      max-width: 1050px;
+      margin: 15px auto;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px 14px;
+      width: 95%;
+    }
+
+    .dash-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .dash-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .subject-nav-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sub-nav-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .sub-nav-btn.active {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #060913;
+      border-color: transparent;
+    }
+
+    .tests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .test-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .test-card-tag {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 6px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .tag-physics { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tag-chemistry { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .tag-maths { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+
+    .test-card h4 {
+      font-size: 14.5px;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+
+    .test-card p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .btn-attempt-test {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #060913;
+      border: none;
+      padding: 9px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .history-table-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 10px;
+    }
+
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+      min-width: 600px;
+    }
+
+    .history-table th, .history-table td {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 9px 10px;
+      text-align: left;
+    }
+
+    .history-table th {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--primary);
+    }
+
+    .btn-action-small {
+      padding: 5px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      margin-bottom: 4px;
+      display: inline-block;
+    }
+
+    .btn-review-paper { background: rgba(56, 189, 248, 0.15); color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.4); }
+    .btn-view-cert { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
+
+    /* SCREEN 2: INSTRUCTIONS */
+    #instructions-page {
+      display: none;
+      max-width: 850px;
+      margin: 15px auto;
+      background: rgba(15, 23, 42, 0.85);
+      padding: 20px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 95%;
+    }
+
+    .inst-title {
+      font-size: 17px;
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .inst-body {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #cbd5e1;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .symbol-table {
+      margin: 12px 0;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .symbol-table td {
+      padding: 6px 8px;
+      font-size: 11.5px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .legend-badge {
+      display: inline-block;
+      width: 26px;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 3px;
+      font-size: 11px;
+      color: white;
+    }
+
+    .inst-footer {
+      margin-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-proceed {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      border: none;
+      padding: 11px;
+      font-size: 13.5px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* SCREEN 3: REAL EXAM PORTAL (MOBILE OPTIMIZED) */
+    #exam-page {
+      display: none;
+      height: calc(100vh - 58px);
+      flex-direction: column;
+    }
+
+    .sub-navbar {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .subject-btn {
+      padding: 6px 10px;
+      border: 1px solid var(--primary);
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .exam-timer {
+      background: rgba(10, 15, 30, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--primary);
+      padding: 5px 8px;
+      font-size: 13px;
+      font-family: monospace;
+      font-weight: bold;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .btn-toggle-palette {
+      display: none;
+      background: #334155;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 5px 9px;
+      font-size: 11px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .workspace {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .question-panel {
+      flex: 1;
+      padding: 16px 14px;
+      background: rgba(11, 17, 32, 0.85);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .q-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+
+    .q-title {
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .q-marking {
+      color: #4ade80;
+      font-weight: bold;
+    }
+
+    .q-text {
+      font-size: 14.5px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      color: #f1f5f9;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13.5px;
+      color: #e2e8f0;
+    }
+
+    .action-footer {
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .action-btn-row {
+      display: flex;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .btn-action {
+      flex: 1;
+      padding: 9px 6px;
+      font-size: 11.5px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-save-next { background: #10b981; color: white; }
+    .btn-clear { background: rgba(255, 255, 255, 0.05); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.15); }
+    .btn-review-next { background: #6366f1; color: white; }
+    .btn-submit { background: var(--primary); color: #0b1120; width: 100%; padding: 10px; font-size: 13px; }
+
+    /* Palette Sidebar / Drawer on Mobile */
+    .palette-panel {
+      width: 290px;
+      background: rgba(15, 23, 42, 0.98);
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      padding: 14px;
+      overflow-y: auto;
+    }
+
+    .palette-counts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 10.5px;
+    }
+
+    .count-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bg-not-visited { background: #334155; color: #cbd5e1; }
+    .bg-not-answered { background: #ef4444; color: white; }
+    .bg-answered { background: #10b981; color: white; }
+    .bg-review { background: #6366f1; color: white; }
+    .bg-ans-review { 
+      background: #6366f1; 
+      color: white; 
+      position: relative; 
+    }
+    .bg-ans-review::after {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #10b981;
+      right: 2px;
+      bottom: 2px;
+    }
+
+    .palette-header {
+      font-size: 12px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+
+    .q-num-btn {
+      height: 34px;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .q-num-btn.active {
+      border: 2px solid var(--primary);
+    }
+
+    /* SCREEN 4: RESPONSIVE CERTIFICATE */
+    #result-page {
+      display: none;
+      max-width: 820px;
+      margin: 15px auto 30px;
+      padding: 0 10px;
+    }
+
+    .certificate-wrapper {
+      background: #ffffff;
+      color: #111827;
+      border-radius: 12px;
+      padding: 25px 15px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      position: relative;
+      border: 6px solid #1e293b;
+      outline: 2px solid #eab308;
+      outline-offset: -5px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cert-logo { font-size: 26px; }
+    .cert-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 19px;
+      letter-spacing: 1px;
+      color: #0f172a;
+    }
+
+    .cert-subtitle {
+      font-size: 10.5px;
+      letter-spacing: 1px;
+      color: #64748b;
+    }
+
+    .cert-body { margin: 18px 0; }
+    .cert-body p { font-size: 13px; color: #475569; }
+
+    .cert-candidate-name {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #0284c7;
+      margin: 8px 0;
+      word-break: break-word;
+    }
+
+    .cert-institute-badge {
+      display: inline-block;
+      margin: 10px 0;
+      background: #0f172a;
+      color: #facc15;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      border: 1.5px solid #eab308;
+      max-width: 90%;
+    }
+
+    .cert-remarks { font-size: 13.5px; font-weight: bold; margin-top: 4px; }
+    .cert-stats-summary { font-size: 12px; color: #64748b; margin-top: 8px; }
+
+    .cert-footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0 10px;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 15px;
+      gap: 10px;
+    }
+
+    .cert-sign-font {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #0f172a;
+      line-height: 1;
+    }
+
+    .cert-sign-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #475569;
+      border-top: 1px solid #0f172a;
+      padding-top: 3px;
+    }
+
+    .cert-stamp-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px double #eab308;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 7.5px;
+      font-weight: bold;
+      color: #854d0e;
+      background: #fefce8;
+      flex-shrink: 0;
+    }
+
+    .cert-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .btn-download-cert {
+      background: #0284c7;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 13.5px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-back-dashboard {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 12px;
+      font-size: 13.5px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* SCREEN 5: REVIEW MODAL */
+    #review-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+    }
+
+    .review-content {
+      background: #0f172a;
+      border: 1px solid var(--card-border);
+      width: 100%;
+      max-width: 800px;
+      height: 88vh;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .review-header h3 { font-size: 15px; color: var(--primary); }
+
+    .btn-close-review {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .review-scroll-area {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .review-q-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .review-q-title { font-size: 13px; font-weight: 600; color: #ffffff; margin-bottom: 8px; }
+
+    .review-opt {
+      padding: 7px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      margin-bottom: 5px;
+      border: 1px solid transparent;
+      color: #cbd5e1;
+    }
+
+    .review-opt.correct-ans { background: rgba(34, 197, 94, 0.15); border-color: #22c55e; color: #86efac; font-weight: bold; }
+    .review-opt.wrong-ans { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #fca5a5; font-weight: bold; }
+
+    /* ========================================================
+       MEDIA QUERY: SPECIAL MOBILE RESPONSIVENESS (< 768px)
+       ======================================================== */
+    @media (max-width: 768px) {
+      .btn-toggle-palette {
+        display: inline-block; /* Show mobile palette toggle */
+      }
+
+      /* Make Palette a full slide-in overlay drawer */
+      .palette-panel {
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100%;
+        z-index: 50;
+        transition: right 0.25s ease-in-out;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
+      }
+
+      .palette-panel.open {
+        right: 0;
+      }
+
+      .palette-grid {
+        max-height: calc(100vh - 220px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================
+       SUBJECT WISE TEST DATASETS
+       ======================================================== -->
+
+  <!-- PHYSICS TESTS -->
+  <pre class="test-dataset" data-id="phy-1" data-title="Physics Test 01: Center of Mass & Momentum" data-subject="Physics" style="display: none;">
+Q: 1 kg tatha 0.5 kg ke do dravyamaan ek hi disha me kramashah 2 m/s tatha 6 m/s se chikni satah par gati kar rahe hain. Nikaay ke dravyamaan kendra (COM) ki chaal kya hogi?
+A) 10/3 m/s
+B) 10/7 m/s
+C) 11/2 m/s
+D) 4 m/s
+Ans: A
+
+Q: 1 kg aur 0.5 kg ke do dravyamaan kramashah 2 m/s tatha 6 m/s se viparit dishaon me chal rahe hain. Nikaay ke dravyamaan kendra (COM) ka veg kitna hoga?
+A) +10/3 m/s
+B) -2/3 m/s
+C) +4/3 m/s
+D) 0 m/s
+Ans: B
+
+Q: 2 kg tatha 6 kg ke do kan ek doosre se 10 m ki doori par sthit hain. Yadi 2 kg ke kan ko 6 kg wale kan ki taraf 2 m visthapit kiya jaye, toh dravyamaan kendra ko sthir rakhne ke liye 6 kg wale kan ko kitna visthapit karna hoga?
+A) 2/3 m
+B) 3/2 m
+C) 1/3 m
+D) 4/3 m
+Ans: A
+
+Q: Ek nikaay par baahya bal shunya hai (F_ext = 0) aur prarambh me v_com = 0 hai. Toh nikaay ke dravyamaan kendra (COM) ke sandarbh me kaun sa kathan satya hai?
+A) Dravyamaan kendra niyat veg se aage badhega
+B) Dravyamaan kendra hamesha sthir rahega
+C) Dravyamaan kendra ka path aantarik balon par nirbhar karega
+D) Dravyamaan kendra parvalayakar gati karega
+Ans: B
+
+Q: Ek vyakti (dravyamaan = m) ek chikni satah par rakhe plank (dravyamaan = M, lambai = L) ke ek sire se chal kar doosre sire par jata hai. Plank ka zameen ke saapeksh visthapan kitna hoga?
+A) mL / (m + M)
+B) ML / (m + M)
+C) mL / M
+D) L / 2
+Ans: A
+  </pre>
+
+  <pre class="test-dataset" data-id="phy-2" data-title="Physics Test 02: Advanced Collisions & Gravity" data-subject="Physics" style="display: none;">
+Q: Ek bandook (dravyamaan = 500 g, kartoos sahit) se 20 g ki goli 100 m/s ke veg se daagi jaati hai. Bandook ke recoil (peeche hatne) ki chaal kya hogi?
+A) 25/6 m/s
+B) 20/3 m/s
+C) 4.17 m/s
+D) Dono A aur C sahi hain
+Ans: D
+
+Q: M tatha 5M dravyamaan aur R tatha 2R trijya ke do gole mukt aakash me chhodne par aapsi gurutvakarshan se aakarshit hote hain (Prarambhik doori 12R). Takkar se pehle chhota gola (M) kitni doori tay karega?
+A) 7.5 R
+B) 2.5 R
+C) 4.5 R
+D) 1.5 R
+Ans: A
+
+Q: Do pindon ki kinetic energy ka anupaat 16:9 hai. Yadi unka linear momentum samaan ho, toh unke dravyamaanon ka anupaat (m1:m2) hoga:
+A) 9:16
+B) 16:9
+C) 3:4
+D) 4:3
+Ans: A
+
+Q: Yadi kisi pind ka samveg (momentum) 50% badha diya jaye, toh uski kinetic energy me kitne pratishat ki vriddhi hogi?
+A) 50%
+B) 100%
+C) 125%
+D) 150%
+Ans: C
+
+Q: 4 g tatha 25 g ki do vastuvon ki gatij oorja (kinetic energy) samaan hai. Unke linear momentum ka anupaat kya hoga?
+A) 2:5
+B) 5:2
+C) 4:5
+D) 16:25
+Ans: A
+  </pre>
+
+  <!-- CHEMISTRY TESTS -->
+  <pre class="test-dataset" data-id="chem-1" data-title="Chemistry Test 01: Electrochemistry Basics" data-subject="Chemistry" style="display: none;">
+Q: Ek galvanic cell me reaction Zn(s) + Cu²⁺(aq) -> Zn²⁺(aq) + Cu(s) hoti hai. Yadi [Zn²⁺] = 0.1 M aur [Cu²⁺] = 0.01 M ho, toh 298 K par EMF kitna hoga? (E°cell = 1.10 V)
+A) 1.100 V
+B) 1.070 V
+C) 1.129 V
+D) 0.730 V
+Ans: B
+
+Q: Chaar dhaatuon A, B, C aur D ke standard reduction potential (SRP) kramashah -3.05 V, -0.76 V, +0.34 V aur +0.80 V hain. Inki reducing power ka sahi ghta kram kya hoga?
+A) A > B > C > D
+B) D > C > B > A
+C) A > C > B > D
+D) B > A > C > D
+Ans: A
+
+Q: Nimn cell ke equilibrium par (Ecell = 0) aane par [Zn²⁺]/[Cu²⁺] ka anupaat kya hoga? Zn | Zn²⁺ || Cu²⁺ | Cu (E°cell = 1.10 V)
+A) 10^18.6
+B) 10^37.2
+C) 10^1.1
+D) 10^2
+Ans: B
+
+Q: 298 K par ek Hydrogen electrode ko pH = 3 wale solution me duboya gaya hai jahan P(H2) = 1 atm hai. Iska reduction potential kitna hoga?
+A) -0.0591 V
+B) -0.177 V
+C) +0.177 V
+D) 0.00 V
+Ans: B
+
+Q: Standard Hydrogen Electrode (SHE) ke sandarbh me kaun sa kathan asatya (incorrect) hai?
+A) Isme platinized platinum foil hoti hai jo H2 gas ko adsorb karti hai
+B) Sabhi taapmano par iska standard potential convention se 0.00 V maana gaya hai
+C) Yeh anode aur cathode dono ki tarah behave kar sakta hai
+D) Iska actual potential solution me H⁺ aayan ki concentration par depend nahi karta
+Ans: D
+  </pre>
+
+  <pre class="test-dataset" data-id="chem-2" data-title="Chemistry Test 02: Advanced Nernst & Cells" data-subject="Chemistry" style="display: none;">
+Q: Ek reaction A(s) + 2B⁺(aq) -> A²⁺(aq) + 2B(s) ke liye E°cell = 0.591 V hai. 298 K par is reaction ka equilibrium constant (Keq) kya hoga?
+A) 10^10
+B) 10^20
+C) 10^5
+D) 2 x 10^10
+Ans: B
+
+Q: Ek redox reaction X(s) + Y²⁺(aq) <=> X²⁺(aq) + Y(s) ke liye Delta G° = -193 kJ/mol hai. Iska E°cell kitna hoga? (1 F = 96500 C/mol)
+A) +2.0 V
+B) +1.0 V
+C) -1.0 V
+D) +0.5 V
+Ans: B
+
+Q: Electrochemical series ke aadhar par nimn me se kaun si reaction spontaneously (swatah) hogi? (E° Fe²⁺/Fe = -0.44V, Cu²⁺/Cu = +0.34V, Ag⁺/Ag = +0.80V)
+A) Cu vilayan se Fe²⁺ ko visthapit karega
+B) Ag vilayan se Cu²⁺ ko visthapit karega
+C) Fe vilayan se Cu²⁺ ko visthapit karega
+D) Ag vilayan se Fe²⁺ ko visthapit karega
+Ans: C
+
+Q: Half-cell reaction MnO4⁻ + 8H⁺ + 5e⁻ -> Mn²⁺ + 4H2O me yadi pH ko 0 se badhakar 2 kar diya jaye, toh electrode potential me kya badlav aayega?
+A) 0.189 V kam ho jayega
+B) 0.189 V badh jayega
+C) 0.094 V kam ho jayega
+D) Koi badlav nahi hoga
+Ans: A
+
+Q: Concentration cell: Pt, H2(1 atm) | HCl(c1) || HCl(c2) | H2(1 atm), Pt ka EMF spontaneous (positive) kab hoga?
+A) c1 = c2
+B) c1 > c2
+C) c2 > c1
+D) c1 x c2 = 1
+Ans: C
+  </pre>
+
+  <!-- MATHEMATICS TESTS -->
+  <pre class="test-dataset" data-id="math-1" data-title="Mathematics Test 01: Calculus & Algebra" data-subject="Mathematics" style="display: none;">
+Q: Yadi y = ln(sec x + tan x) ho, toh dy/dx ka maan kya hoga?
+A) sec x
+B) tan x
+C) sec x * tan x
+D) cos x
+Ans: A
+
+Q: Definite integral: Integration from 0 to pi/2 of [sin(x) / (sin(x) + cos(x))] dx ka maan kya hoga?
+A) pi
+B) pi/2
+C) pi/4
+D) 0
+Ans: C
+
+Q: Ek 3x3 matrix A ke liye yadi |A| = 5 ho, toh |adj(A)| ka maan kitna hoga?
+A) 5
+B) 25
+C) 125
+D) 1/5
+Ans: B
+
+Q: Samikaran x^2 - 5x + 6 = 0 ke mool (roots) kya hain?
+A) 2, 3
+B) -2, -3
+C) 1, 6
+D) -1, -6
+Ans: A
+
+Q: Lim (x -> 0) [sin(5x) / x] ka maan kya hoga?
+A) 1
+B) 5
+C) 0
+D) Anant
+Ans: B
+  </pre>
+
+  <!-- HEADER -->
+  <header class="exam-header">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div class="brand-titles">
+        <h1>IITIAN SHRISTI</h1>
+        <p>JEE Main Computer Based Test</p>
+      </div>
+    </div>
+    
+    <div class="header-user-info" id="top-user-info">
+      <div class="user-details">
+        <div><b id="top-candidate-name" style="color: #38bdf8;">STUDENT</b></div>
+        <div id="top-candidate-phone" style="color: #cbd5e1; font-size: 10px;">0000000000</div>
+      </div>
+      <div class="user-avatar" id="top-user-avatar">U</div>
+      <button class="btn-logout" onclick="logoutCandidate()">Logout</button>
+    </div>
+  </header>
+
+  <!-- SCREEN 1: LOGIN -->
+  <main id="login-page">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header-area">
+          <div class="terminal-tag">
+            <span class="pulse-dot"></span>
+            <span>SECURE CBT TERMINAL</span>
+          </div>
+          <h2>Candidate Login</h2>
+          <p>Login to attempt 3-hour mock exams</p>
+        </div>
+
+        <form onsubmit="handleCandidateLogin(event)">
+          <div class="modern-form-group">
+            <label>Full Name</label>
+            <div class="input-wrapper">
+              <span class="input-icon">👤</span>
+              <input type="text" id="input-name" placeholder="Candidate Name" autocomplete="off" required />
+            </div>
+          </div>
+
+          <div class="modern-form-group">
+            <label>Mobile Number</label>
+            <div class="input-wrapper">
+              <span class="input-icon">📱</span>
+              <input type="tel" id="input-phone" pattern="[0-9]{10}" placeholder="10-digit mobile number" required />
+            </div>
+          </div>
+
+          <div class="modern-form-group">
+            <label>Secret Password</label>
+            <div class="input-wrapper">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="input-password" placeholder="Enter password" required />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-login-modern">Sign In & Open Dashboard →</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- SCREEN: DASHBOARD -->
+  <section id="dashboard-page">
+    <div class="dash-header">
+      <h2>Welcome, <span id="dash-user-name" style="color: var(--primary);">Candidate</span> 👋</h2>
+      <p style="color: var(--text-muted); font-size: 12px; margin-top: 2px;">Select your Subject & Module to start 3-Hour Exam</p>
+    </div>
+
+    <!-- Subject Tabs -->
+    <div class="subject-nav-tabs">
+      <button class="sub-nav-btn active" onclick="switchSubjectTab('Physics')">⚛️ Physics</button>
+      <button class="sub-nav-btn" onclick="switchSubjectTab('Chemistry')">🧪 Chemistry</button>
+      <button class="sub-nav-btn" onclick="switchSubjectTab('Mathematics')">📐 Mathematics</button>
+    </div>
+
+    <div class="tests-grid-section">
+      <h3 id="current-subject-heading" style="font-family: 'Outfit'; font-size: 15px; color: #cbd5e1; margin-bottom: 10px;">Available Physics Tests</h3>
+      <div class="tests-grid" id="available-tests-container"></div>
+    </div>
+
+    <!-- Attempt History -->
+    <h3 style="font-family: 'Outfit'; font-size: 15px; color: #cbd5e1; margin-bottom: 8px;">Exam History & Certificates</h3>
+    <div class="history-table-container">
+      <table class="history-table" id="history-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Test</th>
+            <th>Date</th>
+            <th>Score</th>
+            <th>%</th>
+            <th>Allotted Institute</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="history-table-body"></tbody>
+      </table>
+      <div id="no-history-msg" class="no-history-msg" style="display: none;">
+        Aapne abhi tak koi test nahi diya hai.
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: INSTRUCTIONS -->
+  <section id="instructions-page">
+    <div class="inst-title" id="inst-title">General Instructions</div>
+    <div class="inst-body">
+      <p><b>Please read the instructions carefully:</b></p>
+      <ol style="margin-left: 18px; margin-top: 6px;">
+        <li>Total duration: <b>3 Hours (180 Minutes)</b>.</li>
+        <li>Questions: <b id="inst-total-q" style="color: var(--primary);">0</b> | Full Marks: <b id="inst-full-marks" style="color: #4ade80;">0</b></li>
+        <li>Marking: <b style="color: #4ade80;">+4</b> for Correct, <b style="color: #f87171;">-1</b> for Wrong.</li>
+      </ol>
+
+      <table class="symbol-table">
+        <tr><td><span class="legend-badge bg-not-visited">0</span> Not Visited</td></tr>
+        <tr><td><span class="legend-badge bg-not-answered">0</span> Not Answered</td></tr>
+        <tr><td><span class="legend-badge bg-answered">0</span> Answered</td></tr>
+        <tr><td><span class="legend-badge bg-review">0</span> Marked for Review</td></tr>
+        <tr><td><span class="legend-badge bg-ans-review">0</span> Answered & Marked Review</td></tr>
+      </table>
+    </div>
+
+    <div class="inst-footer">
+      <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; cursor: pointer;">
+        <input type="checkbox" id="consent-check" onchange="toggleProceedBtn()" />
+        <span>I have understood all instructions.</span>
+      </label>
+      <button id="btn-proceed" class="btn-proceed" disabled onclick="startRealExam()">I AM READY TO BEGIN</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: REAL EXAM PORTAL -->
+  <section id="exam-page">
+    <div class="sub-navbar">
+      <button class="subject-btn" id="exam-subject-btn">Physics</button>
+      <div class="exam-timer">⏱️ <span id="timer-display">03:00:00</span></div>
+      <button class="btn-toggle-palette" onclick="toggleMobilePalette()">Palette 📋</button>
+    </div>
+
+    <div class="workspace">
+      <!-- Main Question Panel -->
+      <div class="question-panel">
+        <div class="q-meta-bar">
+          <span class="q-title" id="q-label">Question No. 1</span>
+          <span class="q-marking">+4 | -1</span>
+        </div>
+
+        <div class="q-text" id="q-text">Loading question...</div>
+        <div class="options-list" id="options-box"></div>
+
+        <div class="action-footer">
+          <div class="action-btn-row">
+            <button class="btn-action btn-save-next" onclick="saveAndNext()">Save & Next</button>
+            <button class="btn-action btn-clear" onclick="clearResponse()">Clear</button>
+            <button class="btn-action btn-review-next" onclick="markForReviewAndNext()">Review</button>
+          </div>
+          <button class="btn-action btn-submit" onclick="submitExamPrompt()">Submit Test</button>
+        </div>
+      </div>
+
+      <!-- Palette Panel (Mobile Drawer) -->
+      <div class="palette-panel" id="palette-drawer">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span class="palette-header" style="margin-bottom: 0;">Question Palette:</span>
+          <button class="btn-toggle-palette" onclick="toggleMobilePalette()" style="background: #ef4444; border: none; padding: 3px 8px;">✕ Close</button>
+        </div>
+
+        <div class="palette-counts-grid">
+          <div class="count-box"><span class="legend-badge bg-answered" id="cnt-ans">0</span> Ans</div>
+          <div class="count-box"><span class="legend-badge bg-not-answered" id="cnt-not-ans">0</span> Not Ans</div>
+          <div class="count-box"><span class="legend-badge bg-not-visited" id="cnt-not-vis">0</span> Not Vis</div>
+          <div class="count-box"><span class="legend-badge bg-review" id="cnt-rev">0</span> Rev</div>
+          <div class="count-box" style="grid-column: span 2;"><span class="legend-badge bg-ans-review" id="cnt-ans-rev">0</span> Ans & Rev</div>
+        </div>
+
+        <div class="palette-grid" id="palette-buttons"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 4: CERTIFICATE & RESULT DISPLAY -->
+  <section id="result-page">
+    <div class="certificate-wrapper" id="printable-certificate">
+      <div class="cert-header">
+        <div class="cert-logo">🎓</div>
+        <h2>Certificate of Achievement</h2>
+        <div class="cert-subtitle">National Assessment & Evaluation Portal</div>
+      </div>
+
+      <div class="cert-body">
+        <p>This is to certify that</p>
+        <div class="cert-candidate-name" id="cert-c-name">CANDIDATE NAME</div>
+        <p>has successfully appeared and qualified the competitive online assessment module with remarkable performance.</p>
+
+        <div class="cert-institute-badge" id="cert-institute-badge">IIT BOMBAY</div>
+
+        <div class="cert-remarks" id="cert-remarks">Remark: Excellent Performance</div>
+        
+        <div class="cert-stats-summary" id="cert-stats-summary">
+          Test: Module &bull; Score: 60/60 &bull; Percentage: 100%
+        </div>
+      </div>
+
+      <div class="cert-footer">
+        <div class="cert-signature-box">
+          <div class="cert-sign-font">Shubham Tiwari</div>
+          <div class="cert-sign-title">Authorized Signature (Shubham Tiwari)</div>
+        </div>
+
+        <div class="cert-stamp-badge">
+          <span>★ VERIFIED ★</span>
+          <span>IITIAN</span>
+          <span>SHRISTI</span>
+        </div>
+
+        <div style="text-align: right; font-size: 10px; color: #64748b;">
+          <div><b>Date:</b> <span id="cert-date">30 Sep 2026</span></div>
+          <div><b>CBT Portal</b></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="cert-actions">
+      <button class="btn-download-cert" onclick="window.print()">Download / Print Certificate 📥</button>
+      <button class="btn-back-dashboard" onclick="returnToDashboard()">Return to Dashboard (History)</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 5: REVIEW MODAL -->
+  <div id="review-modal">
+    <div class="review-content">
+      <div class="review-header">
+        <h3 id="modal-test-title">Question Paper Review</h3>
+        <button class="btn-close-review" onclick="closeReviewModal()">Close ✕</button>
+      </div>
+      <div class="review-scroll-area" id="review-scroll-area"></div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function parseTextDataset(rawText) {
+      const parsed = [];
+      const blocks = rawText.trim().split(/\n\s*\n/);
+
+      for (const block of blocks) {
+        const lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+        if (lines.length < 3) continue;
+
+        let questionText = "";
+        let options = [];
+        let correctIndex = -1;
+
+        for (const line of lines) {
+          if (/^(Q[:.]|\d+[\).])/i.test(line)) {
+            questionText = line.replace(/^(Q[:.]|\d+[\).])\s*/i, '');
+          } 
+          else if (/^(Ans|Answer)[:.]/i.test(line)) {
+            const letter = line.replace(/^(Ans|Answer)[:.]\s*/i, '').trim().toUpperCase();
+            if (letter.startsWith('A')) correctIndex = 0;
+            else if (letter.startsWith('B')) correctIndex = 1;
+            else if (letter.startsWith('C')) correctIndex = 2;
+            else if (letter.startsWith('D')) correctIndex = 3;
+          } 
+          else if (/^[A-Da-d][\).]/i.test(line)) {
+            options.push(line.replace(/^[A-Da-d][\).]\s*/i, ''));
+          } 
+          else if (!questionText) {
+            questionText = line;
+          }
+        }
+
+        if (questionText && options.length >= 2 && correctIndex !== -1) {
+          parsed.push({
+            q: questionText,
+            options: options,
+            correct: correctIndex
+          });
+        }
+      }
+      return parsed;
+    }
+
+    const STATUS = {
+      NOT_VISITED: 'not-visited',
+      NOT_ANSWERED: 'not-answered',
+      ANSWERED: 'answered',
+      REVIEW: 'review',
+      ANSWERED_REVIEW: 'answered-review'
+    };
+
+    let allAvailableTests = [];
+    let currentSelectedSubject = "Physics";
+    let activeTest = null;
+    let rawQuestions = [];
+    let currentUser = null;
+    let userState = [];
+    let currentIdx = 0;
+
+    // 3 HOURS = 10,800 SECONDS
+    const THREE_HOURS_SECONDS = 3 * 60 * 60;
+    let timerTotalSeconds = THREE_HOURS_SECONDS;
+    let timerInterval = null;
+    let timeTakenSeconds = 0;
+
+    function toggleMobilePalette() {
+      const drawer = document.getElementById("palette-drawer");
+      drawer.classList.toggle("open");
+    }
+
+    function scanAndRegisterTests() {
+      allAvailableTests = [];
+      const testElements = document.querySelectorAll(".test-dataset");
+      testElements.forEach(el => {
+        const id = el.getAttribute("data-id");
+        const title = el.getAttribute("data-title");
+        const subject = el.getAttribute("data-subject") || "General";
+        const questions = parseTextDataset(el.textContent);
+
+        allAvailableTests.push({
+          id: id,
+          title: title,
+          subject: subject,
+          questions: questions
+        });
+      });
+    }
+
+    function handleCandidateLogin(e) {
+      e.preventDefault();
+      scanAndRegisterTests();
+
+      const name = document.getElementById("input-name").value.trim().toUpperCase();
+      const phone = document.getElementById("input-phone").value.trim();
+      const password = document.getElementById("input-password").value;
+
+      const userKey = `cbt_user_${phone}`;
+      let storedUser = localStorage.getItem(userKey);
+
+      if (storedUser) {
+        storedUser = JSON.parse(storedUser);
+        if (storedUser.password !== password) {
+          alert("Galat Password! Kripya sahi password enter karein.");
+          return;
+        }
+        currentUser = storedUser;
+      } else {
+        currentUser = {
+          name: name,
+          phone: phone,
+          password: password,
+          history: []
+        };
+        localStorage.setItem(userKey, JSON.stringify(currentUser));
+      }
+
+      document.getElementById("top-candidate-name").innerText = currentUser.name;
+      document.getElementById("top-candidate-phone").innerText = currentUser.phone;
+      document.getElementById("top-user-avatar").innerText = currentUser.name.charAt(0);
+      document.getElementById("top-user-info").style.display = "flex";
+
+      showDashboard();
+    }
+
+    function showDashboard() {
+      document.getElementById("login-page").style.display = "none";
+      document.getElementById("instructions-page").style.display = "none";
+      document.getElementById("exam-page").style.display = "none";
+      document.getElementById("result-page").style.display = "none";
+      document.getElementById("dashboard-page").style.display = "block";
+
+      document.getElementById("dash-user-name").innerText = currentUser.name;
+      renderAvailableTestsBySubject(currentSelectedSubject);
+      renderHistoryTable();
+    }
+
+    function switchSubjectTab(subjectName) {
+      currentSelectedSubject = subjectName;
+
+      const buttons = document.querySelectorAll(".sub-nav-btn");
+      buttons.forEach(btn => {
+        if (btn.innerText.includes(subjectName)) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+
+      document.getElementById("current-subject-heading").innerText = `Available ${subjectName} Tests`;
+      renderAvailableTestsBySubject(subjectName);
+    }
+
+    function renderAvailableTestsBySubject(subjectName) {
+      const container = document.getElementById("available-tests-container");
+      container.innerHTML = "";
+
+      const filteredTests = allAvailableTests.filter(t => t.subject.toLowerCase() === subjectName.toLowerCase());
+
+      if (filteredTests.length === 0) {
+        container.innerHTML = `<p style="color: var(--text-muted); font-size: 13px;">Is subject me koi test uplabdh nahi hai.</p>`;
+        return;
+      }
+
+      filteredTests.forEach(test => {
+        const card = document.createElement("div");
+        card.className = "test-card";
+        const fullMarks = test.questions.length * 4;
+
+        let tagClass = "tag-physics";
+        if (subjectName.toLowerCase() === "chemistry") tagClass = "tag-chemistry";
+        if (subjectName.toLowerCase() === "mathematics") tagClass = "tag-maths";
+
+        card.innerHTML = `
+          <div>
+            <span class="test-card-tag ${tagClass}">${test.subject}</span>
+            <h4>${test.title}</h4>
+            <p>3 Hours &bull; ${test.questions.length} Qs (${fullMarks} Marks)</p>
+          </div>
+          <button class="btn-attempt-test" onclick="selectTestToAttempt('${test.id}')">Start Test ➔</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderHistoryTable() {
+      const tbody = document.getElementById("history-table-body");
+      const noHist = document.getElementById("no-history-msg");
+      tbody.innerHTML = "";
+
+      if (!currentUser.history || currentUser.history.length === 0) {
+        noHist.style.display = "block";
+        return;
+      }
+
+      noHist.style.display = "none";
+
+      currentUser.history.forEach((record, idx) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><b>#${idx + 1}</b></td>
+          <td style="color: #cbd5e1; font-weight: 600;">${record.testTitle}</td>
+          <td style="color: var(--text-muted); font-size: 11px;">${record.date}</td>
+          <td><b style="color: var(--primary);">${record.score}/${record.totalMarks}</b></td>
+          <td><span style="color: #38bdf8;">${record.percentage}%</span></td>
+          <td><b style="color: #facc15;">${record.institute}</b></td>
+          <td>
+            <button class="btn-action-small btn-view-cert" onclick="viewSavedCertificate(${idx})">Cert 🏆</button>
+            <button class="btn-action-small btn-review-paper" onclick="openReviewModal(${idx})">Review 👁️</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function selectTestToAttempt(testId) {
+      activeTest = allAvailableTests.find(t => t.id === testId);
+      if (!activeTest || activeTest.questions.length === 0) {
+        alert("Is test me questions nahi hain!");
+        return;
+      }
+
+      rawQuestions = activeTest.questions;
+
+      const fullMarks = rawQuestions.length * 4;
+      document.getElementById("inst-title").innerText = `${activeTest.title}`;
+      document.getElementById("inst-total-q").innerText = rawQuestions.length;
+      document.getElementById("inst-full-marks").innerText = `${fullMarks} Marks`;
+      document.getElementById("exam-subject-btn").innerText = activeTest.subject;
+
+      document.getElementById("dashboard-page").style.display = "none";
+      document.getElementById("instructions-page").style.display = "block";
+    }
+
+    function toggleProceedBtn() {
+      const checkbox = document.getElementById("consent-check");
+      document.getElementById("btn-proceed").disabled = !checkbox.checked;
+    }
+
+    function startRealExam() {
+      document.getElementById("instructions-page").style.display = "none";
+      document.getElementById("exam-page").style.display = "flex";
+
+      timerTotalSeconds = THREE_HOURS_SECONDS;
+      timeTakenSeconds = 0;
+
+      userState = rawQuestions.map(() => ({
+        status: STATUS.NOT_VISITED,
+        selectedOption: null
+      }));
+
+      buildPaletteButtons();
+      loadQuestion(0);
+      startTimer();
+    }
+
+    function buildPaletteButtons() {
+      const container = document.getElementById("palette-buttons");
+      container.innerHTML = "";
+      for (let i = 0; i < rawQuestions.length; i++) {
+        const btn = document.createElement("div");
+        btn.id = `pal-${i}`;
+        btn.className = "q-num-btn bg-not-visited";
+        btn.innerText = i + 1;
+        btn.onclick = () => {
+          jumpToQuestion(i);
+          // Auto close drawer on mobile after selection
+          document.getElementById("palette-drawer").classList.remove("open");
+        };
+        container.appendChild(btn);
+      }
+    }
+
+    function loadQuestion(index) {
+      currentIdx = index;
+
+      document.getElementById("q-label").innerText = `Question No. ${index + 1}`;
+      document.getElementById("q-text").innerText = rawQuestions[index].q;
+
+      const box = document.getElementById("options-box");
+      box.innerHTML = "";
+
+      rawQuestions[index].options.forEach((optText, oIdx) => {
+        const item = document.createElement("label");
+        item.className = "option-item";
+
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "option-radio";
+        radio.value = oIdx;
+        radio.checked = userState[index].selectedOption === oIdx;
+
+        radio.onchange = () => {
+          userState[index].selectedOption = oIdx;
+        };
+
+        const span = document.createElement("span");
+        span.innerText = `${String.fromCharCode(65 + oIdx)}) ${optText}`;
+
+        item.appendChild(radio);
+        item.appendChild(span);
+        box.appendChild(item);
+      });
+
+      if (userState[index].status === STATUS.NOT_VISITED) {
+        userState[index].status = STATUS.NOT_ANSWERED;
+      }
+
+      updatePaletteUI();
+    }
+
+    function jumpToQuestion(index) {
+      loadQuestion(index);
+    }
+
+    function saveAndNext() {
+      if (userState[currentIdx].selectedOption !== null) {
+        userState[currentIdx].status = STATUS.ANSWERED;
+      } else {
+        userState[currentIdx].status = STATUS.NOT_ANSWERED;
+      }
+      nextOrStay();
+    }
+
+    function markForReviewAndNext() {
+      if (userState[currentIdx].selectedOption !== null) {
+        userState[currentIdx].status = STATUS.ANSWERED_REVIEW;
+      } else {
+        userState[currentIdx].status = STATUS.REVIEW;
+      }
+      nextOrStay();
+    }
+
+    function clearResponse() {
+      userState[currentIdx].selectedOption = null;
+      userState[currentIdx].status = STATUS.NOT_ANSWERED;
+
+      const radios = document.getElementsByName("option-radio");
+      radios.forEach(r => r.checked = false);
+
+      updatePaletteUI();
+    }
+
+    function nextOrStay() {
+      updatePaletteUI();
+      if (currentIdx < rawQuestions.length - 1) {
+        loadQuestion(currentIdx + 1);
+      }
+    }
+
+    function updatePaletteUI() {
+      let cntAns = 0, cntNotAns = 0, cntNotVis = 0, cntRev = 0, cntAnsRev = 0;
+
+      userState.forEach((state, i) => {
+        const btn = document.getElementById(`pal-${i}`);
+        btn.className = "q-num-btn";
+
+        if (i === currentIdx) {
+          btn.classList.add("active");
+        }
+
+        switch (state.status) {
+          case STATUS.ANSWERED:
+            btn.classList.add("bg-answered");
+            cntAns++;
+            break;
+          case STATUS.NOT_ANSWERED:
+            btn.classList.add("bg-not-answered");
+            cntNotAns++;
+            break;
+          case STATUS.REVIEW:
+            btn.classList.add("bg-review");
+            cntRev++;
+            break;
+          case STATUS.ANSWERED_REVIEW:
+            btn.classList.add("bg-ans-review");
+            cntAnsRev++;
+            break;
+          default:
+            btn.classList.add("bg-not-visited");
+            cntNotVis++;
+            break;
+        }
+      });
+
+      document.getElementById("cnt-ans").innerText = cntAns;
+      document.getElementById("cnt-not-ans").innerText = cntNotAns;
+      document.getElementById("cnt-not-vis").innerText = cntNotVis;
+      document.getElementById("cnt-rev").innerText = cntRev;
+      document.getElementById("cnt-ans-rev").innerText = cntAnsRev;
+    }
+
+    function startTimer() {
+      const display = document.getElementById("timer-display");
+
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timerTotalSeconds--;
+        timeTakenSeconds++;
+
+        const h = Math.floor(timerTotalSeconds / 3600);
+        const m = Math.floor((timerTotalSeconds % 3600) / 60);
+        const s = timerTotalSeconds % 60;
+
+        const hStr = h < 10 ? '0' + h : h;
+        const mStr = m < 10 ? '0' + m : m;
+        const sStr = s < 10 ? '0' + s : s;
+
+        display.innerText = `${hStr}:${mStr}:${sStr}`;
+
+        if (timerTotalSeconds <= 0) {
+          clearInterval(timerInterval);
+          alert("Time is UP! 3 Hours completed.");
+          finishExam();
+        }
+      }, 1000);
+    }
+
+    function submitExamPrompt() {
+      const answered = userState.filter(s => s.status === STATUS.ANSWERED || s.status === STATUS.ANSWERED_REVIEW).length;
+      const confirmSubmit = confirm(`Kya aap test submit karna chahte hain?\n\nAnswered: ${answered} / ${rawQuestions.length}`);
+      if (confirmSubmit) {
+        clearInterval(timerInterval);
+        finishExam();
+      }
+    }
+
+    function determineInstitute(percentage) {
+      if (percentage >= 97) {
+        return { name: "IIT BOMBAY 🏛️", remarks: "Allotted: IIT BOMBAY (Top Rankers Division)" };
+      } else if (percentage >= 91) {
+        return { name: "IIT DELHI 🏛️", remarks: "Allotted: IIT DELHI (Merit Division)" };
+      } else if (percentage >= 81) {
+        return { name: "NIT TRICHY 🎓", remarks: "Allotted: NIT TRICHY (Distinction)" };
+      } else if (percentage >= 71) {
+        return { name: "NIT ALLAHABAD 🎓", remarks: "Allotted: NIT ALLAHABAD (Honor List)" };
+      } else if (percentage >= 60) {
+        return { name: "NIT JAMMU 🏫", remarks: "Allotted: NIT JAMMU (Qualified)" };
+      } else if (percentage >= 50) {
+        return { name: "NIT MIZORAM 🏫", remarks: "Allotted: NIT MIZORAM (Passed)" };
+      } else {
+        return { name: "PASSED CERTIFICATE", remarks: "Try your best next time! Keep Working Hard!" };
+      }
+    }
+
+    function finishExam() {
+      document.getElementById("exam-page").style.display = "none";
+      document.getElementById("result-page").style.display = "block";
+
+      let correct = 0;
+      let wrong = 0;
+      let unattempted = 0;
+
+      const reviewSnapshots = [];
+
+      userState.forEach((state, i) => {
+        const isEval = state.status === STATUS.ANSWERED || state.status === STATUS.ANSWERED_REVIEW;
+        const isCorrect = isEval && (state.selectedOption === rawQuestions[i].correct);
+
+        if (isEval) {
+          if (isCorrect) correct++;
+          else wrong++;
+        } else {
+          unattempted++;
+        }
+
+        reviewSnapshots.push({
+          q: rawQuestions[i].q,
+          options: rawQuestions[i].options,
+          correct: rawQuestions[i].correct,
+          userSelected: state.selectedOption
+        });
+      });
+
+      const totalMarks = rawQuestions.length * 4;
+      const scoreObtained = (correct * 4) - (wrong * 1);
+      const percentage = Math.max(0, Math.round((scoreObtained / totalMarks) * 100));
+
+      const hrs = Math.floor(timeTakenSeconds / 3600);
+      const mins = Math.floor((timeTakenSeconds % 3600) / 60);
+      const secs = timeTakenSeconds % 60;
+      const timeTakenFormatted = hrs > 0 ? `${hrs}h ${mins}m ${secs}s` : `${mins}m ${secs}s`;
+
+      const instInfo = determineInstitute(percentage);
+      const now = new Date();
+      const dateFormatted = now.toLocaleString('en-IN', { dateStyle: 'medium' });
+
+      document.getElementById("cert-c-name").innerText = currentUser.name;
+      document.getElementById("cert-institute-badge").innerText = instInfo.name;
+      document.getElementById("cert-remarks").innerText = instInfo.remarks;
+      document.getElementById("cert-stats-summary").innerText = 
+        `Module: ${activeTest.title} | Score: ${scoreObtained}/${totalMarks} (${percentage}%) | Accuracy: ${correct}/${rawQuestions.length}`;
+      document.getElementById("cert-date").innerText = dateFormatted;
+
+      const attemptData = {
+        testId: activeTest.id,
+        testTitle: activeTest.title,
+        date: now.toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }),
+        score: scoreObtained,
+        totalMarks: totalMarks,
+        percentage: percentage,
+        institute: instInfo.name,
+        remarks: instInfo.remarks,
+        correct: correct,
+        wrong: wrong,
+        timeTaken: timeTakenFormatted,
+        reviewData: reviewSnapshots
+      };
+
+      currentUser.history.unshift(attemptData);
+      localStorage.setItem(`cbt_user_${currentUser.phone}`, JSON.stringify(currentUser));
+    }
+
+    function viewSavedCertificate(historyIndex) {
+      const record = currentUser.history[historyIndex];
+      if (!record) return;
+
+      document.getElementById("dashboard-page").style.display = "none";
+      document.getElementById("result-page").style.display = "block";
+
+      document.getElementById("cert-c-name").innerText = currentUser.name;
+      document.getElementById("cert-institute-badge").innerText = record.institute;
+      document.getElementById("cert-remarks").innerText = record.remarks;
+      document.getElementById("cert-stats-summary").innerText = 
+        `Module: ${record.testTitle} | Score: ${record.score}/${record.totalMarks} (${record.percentage}%)`;
+      document.getElementById("cert-date").innerText = record.date;
+    }
+
+    function returnToDashboard() {
+      showDashboard();
+    }
+
+    function logoutCandidate() {
+      currentUser = null;
+      document.getElementById("top-user-info").style.display = "none";
+      document.getElementById("dashboard-page").style.display = "none";
+      document.getElementById("exam-page").style.display = "none";
+      document.getElementById("result-page").style.display = "none";
+      document.getElementById("instructions-page").style.display = "none";
+      document.getElementById("login-page").style.display = "flex";
+      document.getElementById("input-password").value = "";
+    }
+
+    function openReviewModal(historyIndex) {
+      const record = currentUser.history[historyIndex];
+      if (!record || !record.reviewData) {
+        alert("Is test ka review data uplabdh nahi hai.");
+        return;
+      }
+
+      document.getElementById("modal-test-title").innerText = `Review: ${record.testTitle}`;
+      const scrollArea = document.getElementById("review-scroll-area");
+      scrollArea.innerHTML = "";
+
+      record.reviewData.forEach((item, qIdx) => {
+        const card = document.createElement("div");
+        card.className = "review-q-card";
+
+        let optHtml = "";
+        item.options.forEach((optText, oIdx) => {
+          let classes = "review-opt";
+          let tag = "";
+
+          if (oIdx === item.correct) {
+            classes += " correct-ans";
+            tag = " [✓ Correct Answer]";
+          }
+          if (item.userSelected === oIdx && oIdx !== item.correct) {
+            classes += " wrong-ans";
+            tag = " [✗ Your Answer]";
+          } else if (item.userSelected === oIdx && oIdx === item.correct) {
+            tag = " [✓ Your Answer - Correct]";
+          }
+
+          optHtml += `<div class="${classes}">${String.fromCharCode(65 + oIdx)}) ${optText} <b>${tag}</b></div>`;
+        });
+
+        card.innerHTML = `
+          <div class="review-q-title">Q${qIdx + 1}. ${item.q}</div>
+          <div>${optHtml}</div>
+        `;
+        scrollArea.appendChild(card);
+      });
+
+      document.getElementById("review-modal").style.display = "flex";
+    }
+
+    function closeReviewModal() {
+      document.getElementById("review-modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
